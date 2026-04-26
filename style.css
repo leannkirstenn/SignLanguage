@@ -57,18 +57,20 @@ header h1 {
 
 /* CARD */
 .card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 14px;
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
+  border: 1px solid rgba(255, 182, 193, 0.4);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6),
+              0 0 40px rgba(255, 182, 193, 0.4);
 }
 
 /* PLACEHOLDER */
