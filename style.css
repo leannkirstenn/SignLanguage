@@ -57,14 +57,14 @@ header h1 {
 
 /* CARD */
 .card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 14px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
   transition: all 0.25s ease;
   cursor: pointer;
-  border: 1px solid rgba(255, 182, 193, 0.4);
 }
 
 .card:hover {
