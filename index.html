@@ -72,13 +72,17 @@
 
 <script>
 function filterCards() {
-  const input = document.getElementById("searchBar").value.toUpperCase();
+  const input = document.getElementById("searchBar").value.trim().toUpperCase();
   const cards = document.getElementsByClassName("card");
 
   for (let i = 0; i < cards.length; i++) {
-    const label = cards[i].getElementsByClassName("label")[0].textContent.toUpperCase();
+    const label = cards[i]
+      .getElementsByClassName("label")[0]
+      .textContent
+      .toUpperCase();
 
-    if (label.includes(input)) {
+    // PREFIX MATCH (starts with)
+    if (label.startsWith(input)) {
       cards[i].style.display = "";
     } else {
       cards[i].style.display = "none";
