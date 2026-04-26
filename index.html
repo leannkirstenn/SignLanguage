@@ -9,33 +9,64 @@
 
 <header>
   <h1>SIGNED</h1>
-  <p>Learn Sign Language through Visual Guides</p>
+  <p>Tagalog Sign Language Alphabet</p>
 </header>
 
-<div class="container">
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search letter (A-Z)...">
+</div>
 
-  <!-- SIGN 1 -->
-  <div class="video-box">
-    <div class="placeholder">No Video Yet</div>
-    <div class="label">Sign: HELLO</div>
-    <div class="description">Used when greeting someone.</div>
+<div class="grid-container" id="videoGrid">
+
+  <!-- REPEAT THIS BLOCK FOR EACH LETTER -->
+  
+  <div class="card" data-letter="A">
+    <div class="placeholder">A</div>
+    <p class="label">Letter A</p>
   </div>
 
-  <!-- SIGN 2 -->
-  <div class="video-box">
-    <div class="placeholder">No Video Yet</div>
-    <div class="label">Sign: THANK YOU</div>
-    <div class="description">Used to show appreciation.</div>
+  <div class="card" data-letter="B">
+    <div class="placeholder">B</div>
+    <p class="label">Letter B</p>
   </div>
 
-  <!-- SIGN 3 -->
-  <div class="video-box">
-    <div class="placeholder">No Video Yet</div>
-    <div class="label">Sign: I LOVE YOU</div>
-    <div class="description">Express love using sign language.</div>
+  <div class="card" data-letter="C">
+    <div class="placeholder">C</div>
+    <p class="label">Letter C</p>
   </div>
+
+  <div class="card" data-letter="D">
+    <div class="placeholder">D</div>
+    <p class="label">Letter D</p>
+  </div>
+
+  <div class="card" data-letter="E">
+    <div class="placeholder">E</div>
+    <p class="label">Letter E</p>
+  </div>
+
+  <!-- 👉 Continue until Z -->
 
 </div>
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("keyup", function() {
+    let value = this.value.toUpperCase();
+
+    cards.forEach(card => {
+      let letter = card.getAttribute("data-letter");
+
+      if (letter.includes(value)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
