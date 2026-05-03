@@ -4,16 +4,16 @@ let currentVideo = null;
 
 videos.forEach(video => {
 
-  video.addEventListener("click", () => {
+  video.addEventListener("click", async () => {
 
-    // If another video is playing → stop it
+    // stop other video first
     if (currentVideo && currentVideo !== video) {
       currentVideo.pause();
       currentVideo.currentTime = 0;
-      currentVideo.muted = true; // reset sound
+      currentVideo.muted = true;
     }
 
-    // If clicked video is already playing → pause it
+    // if same video is playing → pause it
     if (!video.paused) {
       video.pause();
       video.currentTime = 0;
@@ -22,10 +22,17 @@ videos.forEach(video => {
       return;
     }
 
-    // Play new video with sound
+    // MOBILE SAFE PLAY (important order)
     video.muted = false;
-    video.play();
-    currentVideo = video;
+    video.volume = 1.0;
+
+    try {
+      await video.play();
+      currentVideo = video;
+    } catch (err) {
+      console.log("Play blocked:", err);
+    }
+
   });
 
 });
