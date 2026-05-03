@@ -84,6 +84,15 @@ header h1 {
   justify-content: center;
   font-size: 13px;
   color: #5b6b8c;
+  overflow: hidden;
+  position: relative;
+}
+
+.placeholder video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes video fit perfectly */
+  display: block;
 }
 
 /* LABEL */
